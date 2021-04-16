@@ -12,6 +12,7 @@ app.use('/VisionAPI/uploads', express.static('uploads'));
 
 app.get('/VisionAPI', (req, res) => {
   res.send(`
+    <h1> OI </h>
     <h2>Upload an Image</h2>
     <form action="/VisionAPI/upload" enctype="multipart/form-data" method="post">
       <div>File: <input type="file" name="imageFile" /></div>
@@ -41,12 +42,15 @@ app.post('/VisionAPI/upload', (req, res, next) => {
   });
 });
 
-
 async function annotate(filename, res) {
   const [result] = await client.textDetection(filename);
   const text = result.textAnnotations;
   console.log("iamhere");
-  text.forEach(label => res.write(`<p>`+label.description+`</p>`));
+    
+  text.forEach(results => res.write(`<p> locations:` + JSON.stringify(results.boundingPoly.vertices) + `</p>` +`<p> text: `+ results.description +`</p>`));
+  res.write("---------------------------------");
+  text.forEach(results => res.write(`<p> x0:` + results.boundingPoly.vertices[0].x + `</p>` + `<p> y0:` + results.boundingPoly.vertices[0].y + `</p>`));
+               
   res.write('</body></html>');
   res.end();
 }
