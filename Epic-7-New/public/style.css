@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {background-color: rgb(232,232,232);}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+}
+
+.bar {
+  width: 100%;
+  height: 25px;
+  background-color: white;
+  margin-bottom:60px;
+}
+
+.paragraph {
+    display: block;
+    text-align: center;
+    margin-bottom:15px;
+}
+
+.bar2 {
+    width: 20%;
+    height: 3px;
+    background-color: darkgray;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+    margin-top:60px;
+    margin-bottom:60px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#container {
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+    margin-bottom:60px;
+    
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: dimgrey;
+  color: white;
+}
